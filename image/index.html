@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      font-family: 'Sukhumvit Set', 'Prompt', sans-serif;
+      transition: background-color 0.5s ease;
+    }
+
+    .main-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+
+    .swiper-container {
+      width: 393px;
+      height: 843px;
+      position: absolute;
+      top: 50%;
+      left: 44.8%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      padding: 30px 0;
+    }
+
+    .swiper-fade-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background-color: inherit;
+      z-index: 3;
+      pointer-events: none;
+      border-radius: 19px;
+      transition: background-color 0.5s ease;
+    }
+
+
+
+    .swiper-slide {
+      width: 393px;
+      transition: transform 0.3s ease;
+    }
+
+    .no-transition {
+      transition: none !important;
+    }
+
+    .coupon-card {
+      width: 393px;
+      height: 843px;
+      border-radius: 12px;
+      max-width: 100%;
+      margin-left: 100px;
+    }
+
+    .phone-container {
+      position: relative;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .phone-screen {
+      width: 393px;
+      height: 843px;
+      max-width: 50%;
+    }
+
+    .gradient-bottom {
+      height: 200px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: white;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+
+    .swiper-pagination {
+      z-index: 3;
+    }
+
+    .side-image-container {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-40%);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+
+    .bella-text {
+      width: 50%;
+
+    }
+
+    .bella-banner {
+      width: 90%;
+    }
+
+    @media (max-width: 1200px) {
+      .main-container {
+        height: 70vh;
+      }
+
+      .swiper-container {
+        left: 40%;
+      }
+
+      .swiper-fade-mask {
+        width: 32%;
+      }
+
+      .side-image-container {
+        position: fixed;
+        z-index: 11;
+        left: -50px;
+        margin-bottom: 100px;
+      }
+
+      .bella-banner {
+        width: 90%;
+      }
+
+      .bella-text {
+        width: 50%;
+      }
+
+    }
+
+
+    @media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+      .main-container {
+        height: 100vh;
+      }
+
+      .swiper-container {
+        left: 42.5%;
+      }
+
+      .swiper-fade-mask {
+        width: 36%;
+      }
+
+      .side-image-container {
+        position: fixed;
+        z-index: 11;
+        left: -20px;
+        bottom: 50px;
+
+      }
+
+      .bella-banner {
+        width: 90%;
+      }
+
+      .bella-text {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 575px) and (orientation: portrait) {
+    .main-container {
+      height: auto;
+      padding: 20px 10px;
+    }
+
+    .swiper-container {
+      left: 26.5%;
+      width: 100%;
+    }
+
+  .swiper-fade-mask {
+    display: none;
+  }
+
+  .side-image-container {
+    position: fixed;
+    left: 15x;
+  }
+
+
+  .bella-banner {
+    width: 90%;
+    filter: blur(5px);
+
+  }
+
+  .bella-text {
+    width: 110%;
+  }
+}
+
+  </style>
+
+</head>
+
+<body>
+  <div class="container mx-auto px-4 py-12 relative min-h-screen overflow-hidden">
+    <div class="main-container">
+      <div class="side-image-container">
+
+        <img id="side-image" class="bella-text" src="Focus-BellaBG.png" alt="Bella Side" class="object-contain" />
+      </div>
+
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="coupon-card bg-gray-900">
+              <img src="t1.png" class="bella-banner" alt="Bella" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="coupon-card bg-gray-900">
+              <img src="t2.png" class="bella-banner" alt="Paul Bakery" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="coupon-card bg-red-600">
+              <img src="t3.png" class="bella-banner" alt="McDonald's" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="coupon-card bg-yellow-600">
+              <img src="t4.png" class="bella-banner" alt="Starbucks" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="coupon-card bg-green-700">
+              <img src="t5.png" class="bella-banner" alt="Subway" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-fade-mask"></div>
+
+      <div class="phone-container">
+        <div class="phone-screen">
+          <img src="smartphone.png" style="width: 90%;" alt="Smartphone frame" class="w-full h-full object-contain" />
+        </div>
+      </div>
+    </div>
+
+    <div class="gradient-bottom"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sideImageMap = {
+        0: 'e1.png',
+        1: 'e2.png',
+        2: 'e3.png',
+        3: 'e4.png',
+        4: 'e5.png',
+      };
+
+      const bgColors = {
+        0: '#ebf6ff',
+        1: '#b8968d',
+        2: '#f3f8fb',
+        3: '#aac79d',
+        4: '#ede7d8',
+      };
+
+      function updateVisuals(realIndex) {
+        const sideImage = document.getElementById('side-image');
+        sideImage.src = sideImageMap[realIndex];
+
+        document.body.style.backgroundColor = bgColors[realIndex] || '#ebf6ff';
+
+        const fadeMask = document.querySelector('.swiper-fade-mask');
+        fadeMask.style.backgroundColor = bgColors[realIndex] || '#ebf6ff';
+      }
+
+      const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        loopedSlides: 5,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        speed: 500,
+        grabCursor: true,
+        allowTouchMove: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        on: {
+          init: function () {
+            this.slideToLoop(0, 0);
+            updateVisuals(this.realIndex);
+          },
+        },
+      });
+
+      swiper.on('slideChange', () => {
+        updateVisuals(swiper.realIndex);
+      });
+    });
+  </script>
+
+
+
+
+
+</body>
+
+</html>

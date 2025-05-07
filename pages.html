@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Slide By Songkran</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="pages.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- รูปคนเริ่มต้น-->
+    <div class="person-display">
+      <img id="person-img" src="image/e1.png" alt="Person">
+    </div>
+
+    <!-- รูปภาพของ card -->
+    <div class="swiper-container-outer">
+      <div class="swiper package-card-group-hand">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://www.true.th/hubfs/assets_pages/postpaid/paul.png" alt="PAUL">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://www.true.th/hubfs/assets_pages/postpaid/mc.png" alt="McDonald's">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1513639304702-9116ea240a81?q=80&w=800&auto=format" alt="KFC">
+          </div>
+        </div>
+      </div>
+
+      <!-- smartphone -->
+      <div class="phone-wrapper">
+        <div class="phone-viewport" id="phone-view"></div>
+        <img class="phone-frame" src="image/smartphone_2.png" alt="Phone Frame">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // Add person [รูปคนต้องการแสดงออกมาตาม Cards]
+    const personImages = [
+      "image/e2.png",
+      "image/e3.png",
+      "image/e4.png"
+    ];
+
+    const swiper = new Swiper(".package-card-group-hand", {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      spaceBetween: 24,
+      loop: true,
+      loopedSlides: 6,
+      speed: 500,
+      on: {
+        slideChangeTransitionEnd: function () {
+          updatePhoneView();
+        }
+      }
+    });
+
+    function updatePhoneView() {
+      const activeSlide = document.querySelector(".swiper-slide-active img");
+      const phoneView = document.getElementById("phone-view");
+      const personImg = document.getElementById("person-img");
+
+      if (!activeSlide) return;
+
+      phoneView.innerHTML = `<img src="${activeSlide.src}" alt="">`;
+      document.body.style.backgroundImage = `url(${activeSlide.src})`;
+
+      const index = swiper.realIndex % personImages.length;
+      personImg.src = personImages[index];
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const wrapper = document.querySelector('.swiper-wrapper');
+      const slides = document.querySelectorAll('.swiper-slide');
+
+      for (let i = 0; i < 6; i++) {
+        slides.forEach(slide => {
+          const clone = slide.cloneNode(true);
+          wrapper.appendChild(clone);
+        });
+      }
+
+      swiper.update();
+      updatePhoneView();
+    });
+    // end code
+  </script>
+</body>
+
+</html>
